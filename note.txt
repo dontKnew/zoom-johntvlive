@@ -1,13 +1,3 @@
-Work Point : 
-1. PIP Movable 
-2. video full display at full screen
-
-
-
--- Security -- 
-1. Remove the Elements From Browser , instead of use css code for hidew
-
-
 --- Database Chnage ---     
 1. Once Login Place 
     - Mobile : android_id  - Working Good : nothing to change anything
