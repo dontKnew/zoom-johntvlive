@@ -277,8 +277,8 @@ a#galleryOrderMenu
     height: 30px !important;
     margin-left: 5px !important;
     margin-top: 4px;
-    position: absolute;
-    bottom:-39px;
+    /* position: absolute;
+    bottom:-39px; */
   }
 } 
 
@@ -315,3 +315,10 @@ a#galleryOrderMenu
   }
 
   /* End Full */
+  .vhidden {
+    visibility: hidden  ;
+  }
+
+  .notification-manager{
+    display:none !important;
+  }

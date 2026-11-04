@@ -1,6 +1,0 @@
---- Database Chnage ---     
-1. Once Login Place 
-    - Mobile : android_id  - Working Good : nothing to change anything
-    - web : update android_id ==  by login_token in database & firebase 
-            - firebase listen android_id == login_token not, then logout it
-

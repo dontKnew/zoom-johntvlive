@@ -7,6 +7,8 @@ import ProtectedRoute from "./ProtectedRoute";
 import MeetingStart from './MeetingStart';
 import NotFound from './NotFound';
 import "./Helper/disableConsole";
+import DemoExpired from './Helper/DemoExpired';
+import DemoAlreadyUsed from './Helper/DemoAlreadyUsed';
 
 function App() {
   return (
@@ -26,6 +28,8 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/change-password" element={<ProtectedRoute> <ChangePassword /></ProtectedRoute>} />
         <Route path="*" element={<NotFound />} />
+        <Route path="/demo-expired" element={<DemoExpired />} />
+        <Route path="/demo-already-used" element={<DemoAlreadyUsed />} />
 
       </Routes>
     </Router>

@@ -131,7 +131,7 @@ function MeetingStart() {
   /** ✅ Step 2: Fetch meeting data (unchanged logic) */
   const fetchMeetingData = useCallback(async () => {
     const isDocumentPictureInPictureSupported = () => 'documentPictureInPicture' in window;
-    console.log("is pip", isDocumentPictureInPictureSupported());
+    // console.log("is pip", isDocumentPictureInPictureSupported());
     if (!meetingId) {
       setError("Meeting ID missing");
       return;
@@ -151,8 +151,10 @@ function MeetingStart() {
       if(!data.success){
         throw new Error(data.message || "Failed to get meeting")
       }
+      // console.log("Meeting data fetched:", data);
       if (!data.data.sdk_token)
         throw new Error("SDK token missing from API response");
+      // console.warn("Fetched meeting data:", data.data); 
       setMeeting(data.data);
       setStatus("Meeting data loaded.");
     } catch (err) {
@@ -168,7 +170,24 @@ function MeetingStart() {
   /** ✅ Step 3: Start meeting (unchanged) */
   const startMeeting = useCallback(
     (token) => {
-      if(!meeting || !meetingId || !user || !userName || !userEmail) return ;
+      // if(!meeting || !meetingId || !user || !userName || !userEmail) return ;
+      if(!meeting){
+        console.error("Meeting data not available yet.");
+        return;
+      }
+      if(!meetingId){
+        console.error("Meeting ID not available yet.");
+        return;
+      }
+      if(!user){
+        console.error("User data not available yet.");
+        return;
+      }
+      if(!userEmail){
+        console.error("User email not available yet.");
+        return;
+      }
+      setIsJoining(true);
       setStatus("Initializing Zoom meeting...");
       const leaveUrl = import.meta.env.VITE_APP_APP_URL;
 
@@ -221,7 +240,7 @@ function MeetingStart() {
         },
       });
     },
-    [meeting, meetingId, user, userName, userEmail]
+    [meeting, meetingId, user, userEmail]
   );
 
   
@@ -239,6 +258,8 @@ function MeetingStart() {
   useEffect(() => {
     if (meeting?.sdk_token) {
       startMeeting(meeting.sdk_token);
+    }else {
+      // console.warn("SDK token not available yet.");
     }
   }, [meeting, startMeeting]);
 

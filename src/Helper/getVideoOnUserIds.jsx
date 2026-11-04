@@ -13,8 +13,6 @@ export function getVideoOnUserIds(ZoomMtg) {
           const videoUsers = attendeesList
             .filter((p) => p.video === true)
             .map((p) => p.userId);
-
-          // console.log("🎥 Video ON User IDs:", videoUsers);
           resolve(videoUsers);
         },
 

@@ -414,7 +414,7 @@ function waitForVideoElement() {
       <img title="leave meeting" src="/images/a_leave.png" className="fab-button" onClick={handleLogout} />
       <img title="refresh the page" src="/images/a_refresh2.png" className="fab-button" onClick={handleRefresh} />
       {
-        isMobile && showMyButton  && (<img title="video list" src="/images/a_video.png" className="fab-button video-icon" onClick={openGalleryView} 
+        isMobile  && (<img title="video list" src="/images/a_video.png" className={`fab-button video-icon  ${!showMyButton && 'vhidden'}`} onClick={openGalleryView} 
           style={
             {
             borderRadius:"unset"

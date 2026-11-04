@@ -87,7 +87,8 @@ function MeetingList() {
           <h1>Welcome..!</h1>
           <p className="subtitle">{user.username}</p>
           <p className="days-left">
-            <span className="calendar-icon"><CalendarIcon /></span> {user.balance_coins} Days left
+            <span className="calendar-icon"><CalendarIcon /></span> 
+            {user.is_demo_user=='Yes' ? '01' : user.balance_coins } Days left
           </p>
         </div>
         <div className="header-icons">
